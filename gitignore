@@ -1,0 +1,27 @@
+# API keys — NEVER commit these
+.env
+*.key
+
+# Generated reports (users generate their own)
+reports/*.html
+reports/*.json
+!reports/sample-report.html
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
