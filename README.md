@@ -35,16 +35,23 @@ Download from [python.org/downloads](https://python.org/downloads)
 
 > ⚠️ **CRITICAL:** Check **"Add python.exe to PATH"** during installation. If you miss this, nothing will work.
 
+After installing, **close and reopen PowerShell** (press `Win+X` → Terminal).
+
+Verify it works:
+```powershell
+python --version
+```
+
 ### 2. Install the SDK
-Open PowerShell and run:
 ```powershell
 pip install anthropic
 ```
+If `pip` isn't recognized, try: `python -m pip install anthropic`
 
 ### 3. Get your API key
 1. Go to [console.anthropic.com](https://console.anthropic.com/)
 2. Sign up → Click **API Keys** → **Create Key**
-3. Copy the key (starts with `sk-ant-...`)
+3. Copy the key (starts with `sk-ant-...`) — **save it immediately, it's only shown once**
 4. Add $5 in credits under **Billing** (gives you 100+ runs)
 
 ### 4. Set the key as an environment variable
@@ -57,20 +64,32 @@ Press `Win+S` → search **"environment variables"** → Click **"Edit the syste
 
 Click OK → OK → OK. **Close and reopen PowerShell.**
 
-### 5. Clone and run
+Verify it's set:
 ```powershell
-# Click the green "Code" button on this repo → Copy the URL
-git clone <paste-url-here>
-cd competitive-intel-agent
-python agent.py 1
+echo $env:ANTHROPIC_API_KEY
+```
+You should see your key printed back.
+
+### 5. Download the project
+
+**Option A:** Click the green **Code** button on this repo → **Download ZIP** → Extract the folder
+
+**Option B:** If you have Git installed:
+```powershell
+git clone <paste-repo-url-here>
 ```
 
-Wait ~1 minute. Then:
+### 6. Run it
+Open PowerShell and navigate to wherever you saved the project:
+```powershell
+cd "C:\Users\YourName\competitive-intel-agent"
+python agent.py 1
+```
+Wait ~2 minutes, then:
 ```powershell
 python agent.py 2
 ```
-
-Wait ~2 minutes. Then:
+Wait ~2 minutes, then:
 ```powershell
 python agent.py 3
 ```
@@ -79,6 +98,8 @@ Open the report:
 ```powershell
 start reports\latest.html
 ```
+
+**Or just double-click `run.bat`** — it runs all 3 competitors automatically with pauses between each and opens the report when done.
 
 ---
 
@@ -94,11 +115,14 @@ export ANTHROPIC_API_KEY="sk-ant-your-key-here"
 # To make it permanent:
 echo 'export ANTHROPIC_API_KEY="sk-ant-your-key-here"' >> ~/.zshrc && source ~/.zshrc
 
-# Clone and run (use the green "Code" button on GitHub to copy URL)
-git clone <paste-url-here>
+# Download: click green "Code" button → Download ZIP, or:
+git clone <paste-repo-url-here>
 cd competitive-intel-agent
+
 python3 agent.py 1     # OpenAI
+# wait ~2 minutes
 python3 agent.py 2     # Anthropic
+# wait ~2 minutes
 python3 agent.py 3     # Microsoft
 
 # Open report
@@ -198,8 +222,10 @@ Other ideas: GitHub, SAP, HubSpot, Google Gemini, AWS Bedrock — just add the c
 3. Trigger: **Weekly** → Monday → 8:00 AM
 4. Action: **Start a program**
    - Program: `python`
-   - Arguments: `C:\path\to\competitive-intel-agent\agent.py`
-   - Start in: `C:\path\to\competitive-intel-agent`
+   - Arguments: full path to your `agent.py` file
+   - Start in: the folder where `agent.py` lives
+
+> Note: Task Scheduler uses your permanent environment variables, so make sure you set `ANTHROPIC_API_KEY` via Windows Settings (Step 4 above), not just in PowerShell.
 
 ### Mac/Linux (cron)
 ```bash
@@ -254,13 +280,14 @@ crontab -e
 ```
 competitive-intel-agent/
 ├── agent.py                  # Main agent script
-├── run.bat                   # Windows double-click runner
-├── CLAUDE.md                 # Instructions for Claude Code
+├── run.bat                   # Windows: double-click to run all 3 competitors
+├── .env.example              # Shows what environment variable you need
+├── .gitignore                # Keeps secrets and outputs out of git
+├── CLAUDE.md                 # Instructions for Claude Code users
 ├── README.md                 # This file
 ├── LICENSE                   # MIT License
-├── .gitignore                # Keeps secrets and outputs out of git
 └── reports/
-    └── sample-report.html    # Example output (open in browser)
+    └── sample-report.html    # Example output (download and open in browser)
 ```
 
 ---
