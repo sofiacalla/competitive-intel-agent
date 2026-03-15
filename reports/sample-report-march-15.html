@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Competitive Intelligence Report — 2026-03-15</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=JetBrains+Mono:wght@400;500&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:#0B0D14; color:#E8EAF0; line-height:1.7; padding:40px 20px; }
+.container { max-width:1400px; margin:0 auto; }
+.report-header { text-align:center; margin-bottom:48px; padding:48px 40px; background:linear-gradient(135deg,#161929,#0B0D14); border:1px solid #2a2d3e; border-radius:20px; }
+.report-header h1 { font-size:2.4rem; font-weight:700; color:#FFF; margin-bottom:8px; }
+.report-header .subtitle { font-size:1.1rem; color:#C5C9D6; }
+.report-header .date { display:inline-block; margin-top:16px; padding:6px 20px; background:rgba(99,102,241,0.18); border:1px solid rgba(99,102,241,0.4); border-radius:20px; color:#C4CBFC; font-family:'JetBrains Mono',monospace; font-size:0.85rem; }
+.honesty-banner { background:#161929; border:1px solid #3B3F54; border-left:4px solid #F59E0B; border-radius:10px; padding:20px 24px; margin-bottom:32px; font-size:0.92rem; color:#E0E2E8; line-height:1.7; }
+.honesty-banner strong { color:#FCD34D; }
+.honesty-banner .legend { margin-top:12px; display:flex; flex-wrap:wrap; gap:16px; }
+.honesty-banner .legend-item { display:inline-flex; align-items:center; gap:6px; font-size:0.85rem; color:#D1D5DB; }
+.badge-verified { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; background:rgba(16,185,129,0.2); color:#6EE7B7; border:1px solid rgba(16,185,129,0.45); }
+.badge-analysis { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; background:rgba(99,102,241,0.2); color:#C4CBFC; border:1px solid rgba(99,102,241,0.45); }
+.badge-unverified { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; background:rgba(245,158,11,0.2); color:#FCD34D; border:1px solid rgba(245,158,11,0.45); }
+.competitor-card { background:#141724; border:1px solid #2E3248; border-radius:16px; padding:36px; margin-bottom:36px; border-top:4px solid var(--accent); }
+.card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; padding-bottom:16px; border-bottom:1px solid #2E3248; }
+.card-header h2 { font-size:1.7rem; font-weight:700; color:var(--accent-light); }
+.updated { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:#A0A5B8; }
+.section { margin-bottom:28px; }
+.section h3 { font-size:1.08rem; font-weight:700; color:#FFFFFF; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid #252940; }
+.release-item { background:#1C2035; border:1px solid #313658; border-radius:10px; padding:20px; margin-bottom:14px; border-left:4px solid var(--accent); }
+.release-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.release-name { font-weight:700; color:#FFFFFF; font-size:1rem; }
+.release-date { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:#E0E2E8; background:#2A2F4A; padding:3px 12px; border-radius:4px; white-space:nowrap; }
+.release-summary { font-size:0.92rem; color:#D4D7E0; margin-bottom:8px; line-height:1.6; }
+.release-why { font-size:0.9rem; color:var(--why-text); background:var(--why-bg); padding:12px 16px; border-radius:8px; margin-top:10px; line-height:1.55; border:1px solid var(--why-border); }
+.release-why strong { color:var(--why-strong); font-weight:700; }
+.release-source { margin-top:10px; font-size:0.82rem; color:#A0A5B8; }
+.release-source a { color:#A5B4FC; text-decoration:none; border-bottom:1px dotted rgba(165,180,252,0.4); }
+.release-source a:hover { color:#C4CBFC; border-bottom-style:solid; }
+.models-table { width:100%; border-collapse:collapse; font-size:0.92rem; }
+.models-table th { text-align:left; padding:12px 14px; background:#1C2035; color:#F0F1F5; font-weight:700; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px; border-bottom:2px solid #3B3F54; }
+.models-table td { padding:12px 14px; border-bottom:1px solid #2A2F4A; color:#D4D7E0; }
+.model-name { font-weight:700; color:#FFFFFF; font-family:'JetBrains Mono',monospace; font-size:0.88rem; }
+.pricing { font-family:'JetBrains Mono',monospace; color:var(--accent-light); font-size:0.85rem; font-weight:600; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+ul { list-style:none; padding:0; }
+.diff-list li,.try-list li,.talk-tracks li,.news-list li { padding:14px 18px; margin-bottom:8px; background:#1C2035; border:1px solid #2A2F4A; border-radius:8px; font-size:0.92rem; border-left:4px solid var(--accent); color:#E8EAF0; line-height:1.55; }
+.talk-tracks li { background:rgba(16,185,129,0.08); border-color:#1E3A2E; border-left-color:#10B981; }
+.news-list li { border-left-color:#6B7280; font-size:0.9rem; color:#D4D7E0; }
+.news-list li a { color:#A5B4FC; text-decoration:none; font-size:0.82rem; border-bottom:1px dotted rgba(165,180,252,0.4); }
+.news-list li a:hover { color:#C4CBFC; border-bottom-style:solid; }
+.sources-section { background:#141724; border:1px solid #2E3248; border-radius:16px; padding:36px; margin-bottom:32px; }
+.sources-section h2 { font-size:1.3rem; color:#FFF; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid #2E3248; }
+.source-group { margin-bottom:24px; }
+.source-group h4 { color:#F0F1F5; font-size:0.92rem; margin-bottom:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; }
+.source-link { display:block; padding:10px 16px; margin-bottom:6px; background:#1C2035; border-radius:6px; font-size:0.88rem; text-decoration:none; border:1px solid #2A2F4A; transition:border-color 0.2s; }
+.source-link:hover { border-color:#A5B4FC; background:#222744; }
+.source-link .source-title { color:#E8EAF0; font-weight:600; }
+.source-link .source-url { color:#A5B4FC; font-family:'JetBrains Mono',monospace; font-size:0.75rem; display:block; margin-top:3px; }
+.empty { color:#6B7280; font-style:italic; }
+.footer { text-align:center; padding:32px; color:#A0A5B8; font-size:0.88rem; }
+@media (max-width:768px) { .two-col { grid-template-columns:1fr; } .card-header { flex-direction:column; gap:8px; } .report-header h1 { font-size:1.6rem; } .honesty-banner .legend { flex-direction:column; gap:8px; } }
+@media print { body { background:#fff; color:#111; padding:20px; } .competitor-card { border:1px solid #ccc; page-break-inside:avoid; background:#fff; } .release-item,.diff-list li,.try-list li,.talk-tracks li { background:#f5f5f5; color:#111; border-color:#ddd; } .release-why { background:#eef4ff !important; color:#111 !important; border-color:#cce !important; } .release-why strong { color:#333 !important; } .section h3,.card-header h2 { color:#111; } .release-summary,.models-table td,.diff-list li,.try-list li,.talk-tracks li { color:#222; } .honesty-banner { background:#fffbeb; color:#333; } }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="report-header">
+        <h1>🕵️ AI Competitive Intelligence Report</h1>
+        <p class="subtitle">OpenAI vs Anthropic (Claude) vs Microsoft Copilot</p>
+        <span class="date">Week of 2026-03-15</span>
+    </div>
+
+    <div class="honesty-banner">
+        <strong>⚠️ Honesty Notice:</strong> This report was auto-generated on 2026-03-15 using Claude API with live web search. Every factual claim is tagged with a confidence level. <strong>Talk track suggestions are editorial</strong> — they show how a salesperson <em>could</em> frame these facts, not verified marketing claims. Some data may not have been found and is marked as such. Always verify linked sources before customer conversations.
+        <div class="legend">
+            <span class="legend-item"><span class="badge-verified">Verified</span> Found in linked source</span>
+            <span class="legend-item"><span class="badge-analysis">Analysis</span> Editorial interpretation</span>
+            <span class="legend-item"><span class="badge-unverified">Unverified</span> Not confirmed by official source</span>
+        </div>
+    </div>
+
+    
+        <div class="competitor-card" style="--accent:#10A37F;--accent-light:#6EE7B7;--why-bg:#0D2818;--why-text:#D1FAE5;--why-strong:#6EE7B7;--why-border:#1A4D2E">
+            <div class="card-header">
+                <h2>OpenAI</h2>
+                <span class="updated">Updated: 2026-03-15</span>
+            </div>
+            <div class="section"><h3>🚀 Latest Releases</h3>
+                <div class="releases">
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">GPT-5.4</span>
+                        <span class="release-date">2026-03-05</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Most capable and efficient frontier model for professional work. Combines reasoning, coding, and agentic workflows. Features upfront planning, Tool Search, 1M context window (experimental), and native computer-use capabilities. 33% fewer false claims, 18% fewer overall errors vs GPT-5.2.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Delivers highest professional work performance; outperforms on benchmarks including 83% on GDPval (knowledge work), 87.3% preference in finance modeling. Significantly improves error reduction and factual accuracy.</p>
+                    <p class="release-source">Source: <a href="https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/" target="_blank">TechCrunch</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">GPT-5.3 Instant</span>
+                        <span class="release-date">2026-03-05</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Fast, everyday work model tuned for accuracy, web search quality, and conversational flow. Reduces hallucinations by 26.8% (with web), 19.7% (without web) on high-stakes domains. Improves web contextualization and reduces unnecessary caveats.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Better tone and relevance for everyday users; 22.5% reduction in user-flagged hallucinations with web use. Replaces GPT-5.2 Instant for improved UX.</p>
+                    <p class="release-source">Source: <a href="https://openai.com/index/gpt-5-3-instant/" target="_blank">OpenAI Blog</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">GPT-5.4 Thinking (Reasoning)</span>
+                        <span class="release-date">2026-03-05</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Advanced reasoning model combining GPT-5.4 capabilities with extended thinking. Features upfront planning, mid-response steerability, stronger tool use, and 1M context window. Designed for multi-step workflows and complex professional tasks.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> First general-purpose frontier model with native computer-use capabilities. Enables longer, tool-heavy workflows with lower latency. Better at delivering exactly what users asked for with less back-and-forth.</p>
+                    <p class="release-source">Source: <a href="https://academy.openai.com/public/resources/latest-model" target="_blank">OpenAI Academy</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">GPT-5.3-Codex</span>
+                        <span class="release-date">2026-02-05</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; First model combining Codex + GPT-5 training stacks. Brings together code generation, reasoning, and general-purpose intelligence. 25% faster than GPT-5.2-Codex. Enables agentic coding with reasoning and tool use.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Step-change from code generation to general-purpose coding agent. Sets new highs on key benchmarks. Codex team used early versions to debug its own training, manage deployment, and diagnose test results.</p>
+                    <p class="release-source">Source: <a href="https://openai.com/index/introducing-gpt-5-3-codex/" target="_blank">OpenAI Blog</a></p>
+                </div></div>
+            </div>
+            <div class="section"><h3>🤖 Current Models</h3>
+                <table class="models-table"><thead><tr><th>Model</th><th>Best For</th><th>Pricing</th></tr></thead>
+                <tbody>
+                <tr>
+                    <td class="model-name">GPT-5.4</td>
+                    <td>General-purpose professional work, knowledge tasks, balanced speed/quality</td>
+                    <td class="pricing">$2.50/M input tokens</td>
+                </tr>
+                <tr>
+                    <td class="model-name">GPT-5.4 Thinking</td>
+                    <td>Complex reasoning, multi-step workflows, long-horizon professional tasks</td>
+                    <td class="pricing">Enterprise pricing available</td>
+                </tr>
+                <tr>
+                    <td class="model-name">GPT-5.4 Pro</td>
+                    <td>Highest-quality output for most demanding work, extended reasoning</td>
+                    <td class="pricing">Pro/Enterprise tier</td>
+                </tr>
+                <tr>
+                    <td class="model-name">GPT-5.3 Instant</td>
+                    <td>Fast everyday conversations, writing, web search, general assistance</td>
+                    <td class="pricing">$1.25/M input tokens</td>
+                </tr>
+                <tr>
+                    <td class="model-name">GPT-5.3-Codex</td>
+                    <td>Agentic coding, long-running code projects, research-heavy development tasks</td>
+                    <td class="pricing">$3/M input, $15/M output tokens</td>
+                </tr></tbody></table>
+            </div>
+            <div class="two-col">
+                <div class="section"><h3>⚡ Key Differentiators</h3>
+                    <ul class="diff-list"><li><span class="badge-verified">Verified</span> &nbsp; Tool Search - new system for API tool calling enabling agents to scale to larger tool ecosystems without token penalty or intelligence loss</li><li><span class="badge-verified">Verified</span> &nbsp; Native computer-use capabilities - first general-purpose frontier model with direct application interaction</li><li><span class="badge-verified">Verified</span> &nbsp; Upfront Planning feature shows model&#x27;s reasoning before generating answer, enabling mid-response adjustments without restarting</li><li><span class="badge-verified">Verified</span> &nbsp; GPT-5.3-Codex instrumental in creating itself - team used early versions to debug training, manage deployment, and diagnose test results</li></ul>
+                </div>
+                <div class="section"><h3>🧪 Things to Try</h3>
+                    <ul class="try-list"><li>No data</li></ul>
+                </div>
+            </div>
+            <div class="section"><h3>🎯 Sales Talk Track Ammo <span class="badge-analysis" style="vertical-align:middle">Analysis</span></h3>
+                <ul class="talk-tracks"><li>No data</li></ul>
+            </div>
+            <div class="section news-section"><h3>📰 Recent Headlines</h3>
+                <ul class="news-list"><li>No recent news found</li></ul>
+            </div>
+        </div>
+        <div class="competitor-card" style="--accent:#6366F1;--accent-light:#C4CBFC;--why-bg:#1A1538;--why-text:#E0E7FF;--why-strong:#C4CBFC;--why-border:#312E81">
+            <div class="card-header">
+                <h2>Anthropic</h2>
+                <span class="updated">Updated: 2026-03-15</span>
+            </div>
+            <div class="section"><h3>🚀 Latest Releases</h3>
+                <div class="releases">
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Claude Sonnet 4.6</span>
+                        <span class="release-date">2026-02-17</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Frontier-level reasoning in cost-effective form factor with 1M token context (beta), improved coding skills, computer use capabilities, and adaptive thinking</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Matches Opus 4.6 performance on enterprise tasks at 1.7x cheaper pricing; now default model for Free and Pro users. Users prefer Sonnet 4.6 to Opus 4.5 59% of the time in Claude Code</p>
+                    <p class="release-source">Source: <a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank">Anthropic Official News</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Claude Opus 4.6</span>
+                        <span class="release-date">2026-02-05</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Frontier flagship model with agent teams feature for parallel multi-agent workflows, 1M token context window, 128K max output tokens, adaptive thinking, and compaction API for infinite conversations</p>
+                    <p class="release-why"><strong>Why it matters:</strong> 83% improvement on ARC AGI 2 (68.8% vs 37.6%), 84% on BrowseComp agentic search, agent teams enable distributed task execution. Fast mode provides 2.5x faster output at 6x pricing</p>
+                    <p class="release-source">Source: <a href="https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-6" target="_blank">Claude API Docs</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Claude Code Security (Limited Research Preview)</span>
+                        <span class="release-date">2026-02-20</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; AI-powered security scanning for codebases using Opus 4.6 to identify complex vulnerabilities beyond rule-based detection. Multi-stage verification process filters false positives with confidence ratings</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Detected 500+ previously undetected vulnerabilities in production open-source projects. Available to Enterprise and Team customers with expedited access for open-source maintainers</p>
+                    <p class="release-source">Source: <a href="https://www.anthropic.com/news/claude-code-security" target="_blank">Anthropic Official</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Claude Code Agent Teams (Experimental)</span>
+                        <span class="release-date">2026-02-05</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Native multi-agent feature allowing parallel work on shared projects. Lead agent coordinates, assigns tasks, and synthesizes results while teammates work independently with direct inter-agent communication</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Addresses demand for parallel development workflows. Better than subagent patterns for complex codebases; teammates maintain full contextual awareness without main agent intermediary</p>
+                    <p class="release-source">Source: <a href="https://claudefa.st/blog/guide/agents/agent-teams" target="_blank">Claude Community Docs</a></p>
+                </div></div>
+            </div>
+            <div class="section"><h3>🤖 Current Models</h3>
+                <table class="models-table"><thead><tr><th>Model</th><th>Best For</th><th>Pricing</th></tr></thead>
+                <tbody>
+                <tr>
+                    <td class="model-name">Claude Opus 4.6</td>
+                    <td>Complex agentic tasks, long-horizon reasoning, multi-step orchestration, 1M token context workloads. Parallel agent coordination via agent teams</td>
+                    <td class="pricing">N/A</td>
+                </tr>
+                <tr>
+                    <td class="model-name">Claude Sonnet 4.6</td>
+                    <td>Cost-effective frontier reasoning, coding, enterprise tasks, default model for Free and Pro users</td>
+                    <td class="pricing">N/A</td>
+                </tr>
+                <tr>
+                    <td class="model-name">Claude Haiku 3.5</td>
+                    <td>Fast latency, low-cost tasks, reasoning, vision capabilities</td>
+                    <td class="pricing">N/A</td>
+                </tr></tbody></table>
+            </div>
+            <div class="two-col">
+                <div class="section"><h3>⚡ Key Differentiators</h3>
+                    <ul class="diff-list"><li>No data</li></ul>
+                </div>
+                <div class="section"><h3>🧪 Things to Try</h3>
+                    <ul class="try-list"><li>No data</li></ul>
+                </div>
+            </div>
+            <div class="section"><h3>🎯 Sales Talk Track Ammo <span class="badge-analysis" style="vertical-align:middle">Analysis</span></h3>
+                <ul class="talk-tracks"><li>No data</li></ul>
+            </div>
+            <div class="section news-section"><h3>📰 Recent Headlines</h3>
+                <ul class="news-list"><li>No recent news found</li></ul>
+            </div>
+        </div>
+        <div class="competitor-card" style="--accent:#6366F1;--accent-light:#C4CBFC;--why-bg:#1A1538;--why-text:#E0E7FF;--why-strong:#C4CBFC;--why-border:#312E81">
+            <div class="card-header">
+                <h2>Microsoft (Copilot Ecosystem)</h2>
+                <span class="updated">Updated: 2026-03-15</span>
+            </div>
+            <div class="section"><h3>🚀 Latest Releases</h3>
+                <div class="releases">
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Wave 3 Microsoft 365 Copilot</span>
+                        <span class="release-date">2026-03-09</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Major update introducing Copilot Cowork (multi-step task execution), embedded agentic capabilities in Word/Excel/PowerPoint/Outlook, and multi-model intelligence with Claude and OpenAI models.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Shifts Copilot from chat-only to execution-based work, enabling long-running autonomous tasks with Work IQ grounding. Represents transition from experimentation to enterprise-scale production.</p>
+                    <p class="release-source">Source: <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/" target="_blank">Microsoft 365 Blog</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Copilot Cowork (Frontier Program)</span>
+                        <span class="release-date">2026-03-09</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Built with Anthropic&#x27;s Claude Cowork technology. Enables multi-step task planning and execution across Microsoft 365 apps with full observability and governance. In Research Preview, rolling out via Frontier program late March.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> First production integration of Anthropic models into Microsoft 365 workflow automation. Demonstrates multi-model strategy beyond OpenAI. Auditable, sandboxed execution critical for enterprise adoption.</p>
+                    <p class="release-source">Source: <a href="https://www.microsoft.com/en-us/microsoft-365-copilot/copilot-cowork-a-new-way-of-getting-work-done/" target="_blank">Microsoft 365 Blog</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Agent 365 &amp; Microsoft 365 E7 Suite</span>
+                        <span class="release-date">2026-03-09</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; General availability of Agent 365 on May 1, 2026 ($15/user). Microsoft 365 E7: The Frontier Suite launching May 1 at $99/user, unifying E5, Copilot, and Agent 365 with Work IQ integration.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Major enterprise packaging shift. E7 priced below à la carte—drives adoption. Microsoft using Agent 365 internally with 500,000+ agents, generating 65,000+ responses daily, validating ROI.</p>
+                    <p class="release-source">Source: <a href="https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/" target="_blank">Official Microsoft Blog</a></p>
+                </div>
+                <div class="release-item">
+                    <div class="release-header">
+                        <span class="release-name">Copilot Studio: Agent Evaluations &amp; Computer Use</span>
+                        <span class="release-date">2026-03-08</span>
+                    </div>
+                    <p class="release-summary"><span class="badge-verified">Verified</span> &nbsp; Enhanced agent evaluations (set-level grading), expanded computer-use agent model support, new Agent Academy training, AI icon generation, VS Code extension for agent versioning/deployment.</p>
+                    <p class="release-why"><strong>Why it matters:</strong> Addresses enterprise scale trust challenge. Agents can validate performance on production data, run side-by-side comparisons, prevent regressions. Lifecycle management features critical for governance.</p>
+                    <p class="release-source">Source: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-agent-evaluations-computer-use-and-advanced-maker-training/" target="_blank">Microsoft Copilot Blog</a></p>
+                </div></div>
+            </div>
+            <div class="section"><h3>🤖 Current Models</h3>
+                <table class="models-table"><thead><tr><th>Model</th><th>Best For</th><th>Pricing</th></tr></thead>
+                <tbody><tr><td colspan="3">No model data found</td></tr></tbody></table>
+            </div>
+            <div class="two-col">
+                <div class="section"><h3>⚡ Key Differentiators</h3>
+                    <ul class="diff-list"><li>No data</li></ul>
+                </div>
+                <div class="section"><h3>🧪 Things to Try</h3>
+                    <ul class="try-list"><li>No data</li></ul>
+                </div>
+            </div>
+            <div class="section"><h3>🎯 Sales Talk Track Ammo <span class="badge-analysis" style="vertical-align:middle">Analysis</span></h3>
+                <ul class="talk-tracks"><li>No data</li></ul>
+            </div>
+            <div class="section news-section"><h3>📰 Recent Headlines</h3>
+                <ul class="news-list"><li>No recent news found</li></ul>
+            </div>
+        </div>
+
+    
+
+    <div class="footer">
+        <p>Generated by Competitive Intel Agent · Built for tech sales professionals</p>
+        <p>Cost: ~$0.20 per run · Run <code>python agent.py</code> weekly</p>
+        <p style="margin-top:8px">⚠️ Talk tracks are editorial suggestions. Always check linked sources before customer conversations.</p>
+    </div>
+</div>
+</body>
+</html>
